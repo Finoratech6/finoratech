@@ -9,40 +9,18 @@
 /* ====== RESET & VARIABEL ====== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --blue:#0a84ff;
-  --blue-2:#3ea6ff;
-  --blue-glow:rgba(10,132,255,.45);
-  --bg:#05070d;
-  --bg-2:#0b1020;
-  --card:#0f1526;
-  --card-2:#131a2e;
-  --text:#eaf1ff;
-  --muted:#9aa8c7;
-  --line:rgba(120,150,220,.16);
-  --white:#ffffff;
-  --radius:18px;
-  --shadow:0 18px 50px rgba(0,0,0,.55);
+  --blue:#0a84ff; --blue-2:#3ea6ff; --blue-glow:rgba(10,132,255,.45);
+  --bg:#05070d; --bg-2:#0b1020; --card:#0f1526; --card-2:#131a2e;
+  --text:#eaf1ff; --muted:#9aa8c7; --line:rgba(120,150,220,.16);
+  --white:#ffffff; --radius:18px; --shadow:0 18px 50px rgba(0,0,0,.55);
   --font:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
 }
 body.light{
-  --bg:#f4f7ff;
-  --bg-2:#eaf0ff;
-  --card:#ffffff;
-  --card-2:#f0f5ff;
-  --text:#0a1226;
-  --muted:#4d5a7a;
-  --line:rgba(10,40,100,.14);
-  --shadow:0 18px 45px rgba(20,40,90,.12);
+  --bg:#f4f7ff; --bg-2:#eaf0ff; --card:#ffffff; --card-2:#f0f5ff;
+  --text:#0a1226; --muted:#4d5a7a; --line:rgba(10,40,100,.14); --shadow:0 18px 45px rgba(20,40,90,.12);
 }
 html{scroll-behavior:smooth}
-body{
-  font-family:var(--font);
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
-  transition:background .4s,color .4s;
-}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background .4s,color .4s;}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
@@ -53,92 +31,42 @@ ul{list-style:none}
 .bg-glow span{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
 .bg-glow span:nth-child(1){width:520px;height:520px;background:var(--blue);top:-180px;left:-150px;opacity:.22}
 .bg-glow span:nth-child(2){width:420px;height:420px;background:#7a5cff;bottom:-160px;right:-120px;opacity:.14}
-.bg-glow span:nth-child(3){width:300px;height:300px;background:var(--blue-2);top:40%;left:60%;opacity:.08}
 
 /* ====== NAVBAR ====== */
-.navbar{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  backdrop-filter:blur(14px);
-  background:rgba(5,7,13,.72);
-  border-bottom:1px solid var(--line);
-  transition:background .4s;
-}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(14px);background:rgba(5,7,13,.72);border-bottom:1px solid var(--line);transition:background .4s;}
 body.light .navbar{background:rgba(244,247,255,.82)}
-.nav-inner{
-  max-width:1200px;margin:auto;padding:14px 22px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-}
+.nav-inner{max-width:1200px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;font-size:1.15rem}
-.logo-mark{
-  width:38px;height:38px;border-radius:12px;
-  background:linear-gradient(135deg,var(--blue),#7a5cff);
-  display:grid;place-items:center;font-size:1.1rem;
-  box-shadow:0 0 22px var(--blue-glow);
-}
+.logo-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--blue),#7a5cff);display:grid;place-items:center;font-size:1.1rem;box-shadow:0 0 22px var(--blue-glow);}
 .logo b{color:var(--blue-2)}
 .nav-links{display:flex;align-items:center;gap:6px}
-.nav-links a{
-  padding:8px 14px;border-radius:10px;font-size:.92rem;color:var(--muted);
-  transition:.25s;font-weight:500;
-}
+.nav-links a{padding:8px 14px;border-radius:10px;font-size:.92rem;color:var(--muted);transition:.25s;font-weight:500;}
 .nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(10,132,255,.14)}
 body.light .nav-links a:hover,body.light .nav-links a.active{color:var(--blue);background:rgba(10,132,255,.1)}
 .nav-actions{display:flex;align-items:center;gap:8px}
-.icon-btn{
-  width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
-  border:1px solid var(--line);background:var(--card);font-size:1rem;
-  transition:.25s;
-}
+.icon-btn{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;border:1px solid var(--line);background:var(--card);font-size:1rem;transition:.25s;}
 .icon-btn:hover{border-color:var(--blue);box-shadow:0 0 18px var(--blue-glow);transform:translateY(-1px)}
 .burger{display:none}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:11px 22px;border-radius:12px;font-weight:600;font-size:.92rem;
-  transition:.28s;border:1px solid transparent;
-}
-.btn-primary{
-  background:linear-gradient(135deg,var(--blue),#3ea6ff);
-  color:#fff;box-shadow:0 8px 26px var(--blue-glow);
-}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:12px;font-weight:600;font-size:.92rem;transition:.28s;border:1px solid transparent;}
+.btn-primary{background:linear-gradient(135deg,var(--blue),#3ea6ff);color:#fff;box-shadow:0 8px 26px var(--blue-glow);}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px var(--blue-glow)}
 .btn-ghost{border-color:var(--line);background:var(--card);color:var(--text)}
 .btn-ghost:hover{border-color:var(--blue);transform:translateY(-2px)}
 
 /* Mobile nav */
-.mobile-menu{
-  display:none;position:fixed;inset:64px 0 auto 0;z-index:999;
-  background:var(--bg-2);border-bottom:1px solid var(--line);
-  padding:14px 22px 24px;flex-direction:column;gap:6px;
-}
+.mobile-menu{display:none;position:fixed;inset:64px 0 auto 0;z-index:999;background:var(--bg-2);border-bottom:1px solid var(--line);padding:14px 22px 24px;flex-direction:column;gap:6px;}
 .mobile-menu.open{display:flex}
 .mobile-menu a{padding:12px 14px;border-radius:10px;font-weight:500}
 .mobile-menu a:hover{background:rgba(10,132,255,.14)}
 
 /* ====== HERO ====== */
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:120px 22px 80px;position:relative;
-}
-.hero-inner{
-  max-width:1200px;margin:auto;width:100%;
-  display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;
-}
-.badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:7px 14px;border-radius:100px;font-size:.78rem;font-weight:600;
-  border:1px solid rgba(10,132,255,.35);background:rgba(10,132,255,.1);
-  color:var(--blue-2);margin-bottom:22px;letter-spacing:.4px;
-}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 22px 80px;position:relative;}
+.hero-inner{max-width:1200px;margin:auto;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;font-size:.78rem;font-weight:600;border:1px solid rgba(10,132,255,.35);background:rgba(10,132,255,.1);color:var(--blue-2);margin-bottom:22px;letter-spacing:.4px;}
 .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--blue-2);box-shadow:0 0 10px var(--blue-2);animation:pulse 1.8s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.hero h1{
-  font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.12;
-  font-weight:800;letter-spacing:-1px;margin-bottom:20px;
-}
-.hero h1 .grad{
-  background:linear-gradient(110deg,var(--blue-2),#7a5cff 60%,var(--blue));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.12;font-weight:800;letter-spacing:-1px;margin-bottom:20px;}
+.hero h1 .grad{background:linear-gradient(110deg,var(--blue-2),#7a5cff 60%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;}
 .hero p.lead{color:var(--muted);font-size:1.05rem;max-width:520px;margin-bottom:30px}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
 .hero-stats{display:flex;gap:32px;flex-wrap:wrap}
@@ -147,41 +75,16 @@ body.light .nav-links a:hover,body.light .nav-links a.active{color:var(--blue);b
 
 /* ====== DOLPHIN ====== */
 .dolphin-stage{position:relative;display:grid;place-items:center;min-height:420px}
-.dolphin-ring{
-  position:absolute;width:340px;height:340px;border-radius:50%;
-  border:1px solid rgba(10,132,255,.25);
-  box-shadow:0 0 80px rgba(10,132,255,.18) inset,0 0 80px rgba(10,132,255,.12);
-  animation:spinSlow 26s linear infinite;
-}
-.dolphin-ring::after{
-  content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;
-  border-radius:50%;background:var(--blue-2);box-shadow:0 0 14px var(--blue-2);
-  transform:translateX(-50%);
-}
+.dolphin-ring{position:absolute;width:340px;height:340px;border-radius:50%;border:1px solid rgba(10,132,255,.25);box-shadow:0 0 80px rgba(10,132,255,.18) inset,0 0 80px rgba(10,132,255,.12);animation:spinSlow 26s linear infinite;}
+.dolphin-ring::after{content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:var(--blue-2);box-shadow:0 0 14px var(--blue-2);transform:translateX(-50%);}
 .dolphin-ring.r2{width:260px;height:260px;animation-duration:18s;animation-direction:reverse;border-style:dashed;opacity:.6}
 @keyframes spinSlow{to{transform:rotate(360deg)}}
-
-.dolphin{
-  width:300px;height:300px;position:relative;z-index:2;
-  animation:floatDolphin 5s ease-in-out infinite;
-  filter:drop-shadow(0 0 26px rgba(10,132,255,.55));
-}
-@keyframes floatDolphin{
-  0%,100%{transform:translateY(0) rotate(-3deg)}
-  50%{transform:translateY(-22px) rotate(3deg)}
-}
+.dolphin{width:300px;height:300px;position:relative;z-index:2;animation:floatDolphin 5s ease-in-out infinite;filter:drop-shadow(0 0 26px rgba(10,132,255,.55));}
+@keyframes floatDolphin{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-22px) rotate(3deg)}}
 .dolphin svg{width:100%;height:100%}
 .dolphin .fin{animation:finWave 2.6s ease-in-out infinite;transform-origin:center}
 @keyframes finWave{0%,100%{transform:rotate(0)}50%{transform:rotate(-8deg)}}
-
-/* chips melayang */
-.chip{
-  position:absolute;z-index:3;padding:8px 14px;border-radius:12px;
-  background:var(--card);border:1px solid var(--line);
-  font-size:.78rem;font-weight:600;color:var(--muted);
-  box-shadow:var(--shadow);backdrop-filter:blur(8px);
-  animation:floatChip 6s ease-in-out infinite;
-}
+.chip{position:absolute;z-index:3;padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:.78rem;font-weight:600;color:var(--muted);box-shadow:var(--shadow);backdrop-filter:blur(8px);animation:floatChip 6s ease-in-out infinite;}
 .chip b{color:var(--blue-2)}
 .chip.c1{top:8%;left:0;animation-delay:.2s}
 .chip.c2{bottom:16%;right:-4px;animation-delay:1.4s}
@@ -193,104 +96,43 @@ section{padding:90px 22px;position:relative}
 .container{max-width:1200px;margin:auto}
 .sec-head{max-width:680px;margin-bottom:48px}
 .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
-.sec-tag{
-  font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--blue-2);margin-bottom:12px;display:block;
-}
+.sec-tag{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue-2);margin-bottom:12px;display:block;}
 .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.6px;line-height:1.2}
 .sec-head p{color:var(--muted);margin-top:14px;font-size:1rem}
 
 /* ====== ABOUT ====== */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.about-card{
-  background:linear-gradient(160deg,var(--card),var(--card-2));
-  border:1px solid var(--line);border-radius:var(--radius);
-  padding:34px;box-shadow:var(--shadow);position:relative;overflow:hidden;
-}
-.about-card::before{
-  content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;
-  background:radial-gradient(circle,var(--blue-glow),transparent 70%);
-}
+.about-card{background:linear-gradient(160deg,var(--card),var(--card-2));border:1px solid var(--line);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.about-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle,var(--blue-glow),transparent 70%);}
 .about-list{display:grid;gap:16px;margin-top:8px}
 .about-item{display:flex;gap:14px;align-items:flex-start}
-.about-item .ic{
-  min-width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
-  background:rgba(10,132,255,.12);border:1px solid rgba(10,132,255,.3);font-size:1.15rem;
-}
+.about-item .ic{min-width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(10,132,255,.12);border:1px solid rgba(10,132,255,.3);font-size:1.15rem;}
 .about-item h4{font-size:.98rem;margin-bottom:2px}
 .about-item p{font-size:.86rem;color:var(--muted)}
 
 /* ====== PRODUCTS ====== */
 .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.product-card{
-  background:linear-gradient(165deg,var(--card),var(--card-2));
-  border:1px solid var(--line);border-radius:var(--radius);
-  padding:28px 26px;position:relative;overflow:hidden;
-  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
-  display:flex;flex-direction:column;
-}
-.product-card::after{
-  content:'';position:absolute;inset:0;border-radius:var(--radius);
-  background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(10,132,255,.16),transparent 55%);
-  opacity:0;transition:opacity .35s;pointer-events:none;
-}
-.product-card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(10,132,255,.55);
-  box-shadow:0 22px 50px rgba(10,132,255,.22);
-}
-.product-card:hover::after{opacity:1}
-.product-icon{
-  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
-  font-size:1.4rem;margin-bottom:18px;
-  background:linear-gradient(135deg,rgba(10,132,255,.22),rgba(122,92,255,.16));
-  border:1px solid rgba(10,132,255,.35);
-  transition:transform .35s;
-}
+.product-card{background:linear-gradient(165deg,var(--card),var(--card-2));border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;position:relative;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;display:flex;flex-direction:column;}
+.product-card:hover{transform:translateY(-8px);border-color:rgba(10,132,255,.55);box-shadow:0 22px 50px rgba(10,132,255,.22);}
+.product-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;margin-bottom:18px;background:linear-gradient(135deg,rgba(10,132,255,.22),rgba(122,92,255,.16));border:1px solid rgba(10,132,255,.35);transition:transform .35s;}
 .product-card:hover .product-icon{transform:scale(1.08) rotate(-4deg)}
 .product-card h3{font-size:1.12rem;margin-bottom:8px}
 .product-card p{font-size:.88rem;color:var(--muted);margin-bottom:20px;flex:1}
 .product-card .btn{width:100%;padding:10px 16px;font-size:.85rem}
-.tag-mini{
-  position:absolute;top:16px;right:16px;font-size:.66rem;font-weight:700;
-  padding:4px 10px;border-radius:100px;letter-spacing:.6px;text-transform:uppercase;
-  background:rgba(10,132,255,.14);color:var(--blue-2);border:1px solid rgba(10,132,255,.3);
-}
+.tag-mini{position:absolute;top:16px;right:16px;font-size:.66rem;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:.6px;text-transform:uppercase;background:rgba(10,132,255,.14);color:var(--blue-2);border:1px solid rgba(10,132,255,.3);}
 
-/* ====== AI SECTION ====== */
-.ai-wrap{
-  background:linear-gradient(140deg,rgba(10,132,255,.12),rgba(122,92,255,.08));
-  border:1px solid var(--line);border-radius:28px;padding:52px 40px;
-  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
-  position:relative;overflow:hidden;
-}
-.ai-wrap::before{
-  content:'';position:absolute;width:400px;height:400px;border-radius:50%;
-  background:radial-gradient(circle,var(--blue-glow),transparent 65%);
-  top:-160px;right:-120px;
-}
+/* ====== AI & TOOLS SECTION ====== */
+.ai-wrap{background:linear-gradient(140deg,rgba(10,132,255,.12),rgba(122,92,255,.08));border:1px solid var(--line);border-radius:28px;padding:52px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden;}
 .ai-steps{display:grid;gap:16px;position:relative;z-index:2}
-.ai-step{
-  display:flex;gap:16px;padding:16px 18px;border-radius:14px;
-  background:rgba(255,255,255,.03);border:1px solid var(--line);
-  transition:.3s;
-}
+.ai-step{display:flex;gap:16px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line);transition:.3s;}
 body.light .ai-step{background:rgba(255,255,255,.7)}
 .ai-step:hover{border-color:var(--blue);transform:translateX(6px)}
-.ai-step .num{
-  min-width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
-  font-weight:800;font-size:.85rem;color:#fff;
-  background:linear-gradient(135deg,var(--blue),#7a5cff);
-}
+.ai-step .num{min-width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:.85rem;color:#fff;background:linear-gradient(135deg,var(--blue),#7a5cff);}
 .ai-step h4{font-size:.95rem;margin-bottom:2px}
 .ai-step p{font-size:.84rem;color:var(--muted)}
 
-/* ====== TOOLS ====== */
 .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.tool{
-  padding:26px 22px;border-radius:16px;background:var(--card);
-  border:1px solid var(--line);transition:.3s;text-align:center;
-}
+.tool{padding:26px 22px;border-radius:16px;background:var(--card);border:1px solid var(--line);transition:.3s;text-align:center;cursor:pointer;}
 .tool:hover{border-color:var(--blue);transform:translateY(-6px);box-shadow:0 16px 38px rgba(10,132,255,.18)}
 .tool .em{font-size:1.7rem;margin-bottom:12px;display:block}
 .tool h4{font-size:.95rem;margin-bottom:4px}
@@ -299,21 +141,15 @@ body.light .ai-step{background:rgba(255,255,255,.7)}
 /* ====== CONTACT ====== */
 .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
 .contact-info{display:grid;gap:16px}
-.contact-line{display:flex;gap:14px;align-items:center;padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.contact-line{display:flex;gap:14px;align-items:center;padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line);transition:.25s;}
+.contact-line:hover{border-color:var(--blue);transform:translateX(4px)}
 .contact-line .ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:rgba(10,132,255,.12);border:1px solid rgba(10,132,255,.3);font-size:1.1rem}
 .contact-line b{display:block;font-size:.9rem}
 .contact-line span{font-size:.82rem;color:var(--muted)}
-.form{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:30px;box-shadow:var(--shadow);
-}
+.form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);}
 .field{margin-bottom:16px}
 .field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px;color:var(--muted)}
-.field input,.field textarea{
-  width:100%;padding:12px 15px;border-radius:11px;font-family:inherit;font-size:.92rem;
-  background:var(--bg-2);color:var(--text);border:1px solid var(--line);
-  outline:none;transition:.25s;
-}
+.field input,.field textarea{width:100%;padding:12px 15px;border-radius:11px;font-family:inherit;font-size:.92rem;background:var(--bg-2);color:var(--text);border:1px solid var(--line);outline:none;transition:.25s;}
 .field input:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(10,132,255,.16)}
 .field textarea{resize:vertical;min-height:110px}
 .form .btn{width:100%}
@@ -321,32 +157,40 @@ body.light .ai-step{background:rgba(255,255,255,.7)}
 .form-msg.ok{color:#39d98a}
 .form-msg.err{color:#ff6b81}
 
+/* ====== MODAL (POP-UP APLIKASI) ====== */
+.modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.8);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-content{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;width:100%;max-width:500px;padding:30px;position:relative;box-shadow:var(--shadow);animation:slideUp .4s cubic-bezier(.2,.8,.2,1);}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-close{position:absolute;top:15px;right:15px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:1.2rem;color:var(--text);}
+.modal-close:hover{background:#ff4757;color:#fff}
+.modal-content h3{font-size:1.3rem;margin-bottom:8px;color:var(--blue-2)}
+.modal-content p{font-size:.9rem;color:var(--muted);margin-bottom:20px}
+.lock-icon{font-size:3rem;text-align:center;margin-bottom:15px;display:block}
+
+/* Simulasi AI Chat */
+.chat-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px;height:200px;overflow-y:auto;margin-bottom:15px;display:flex;flex-direction:column;gap:10px;}
+.chat-bubble{padding:10px 14px;border-radius:12px;font-size:.85rem;max-width:80%;}
+.chat-bubble.ai{background:rgba(10,132,255,.15);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px;}
+.chat-bubble.user{background:var(--blue);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;}
+
 /* ====== FOOTER ====== */
-footer{
-  border-top:1px solid var(--line);background:var(--bg-2);
-  padding:60px 22px 26px;margin-top:40px;
-}
+footer{border-top:1px solid var(--line);background:var(--bg-2);padding:60px 22px 26px;margin-top:40px;}
 .foot-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px}
 .foot-brand p{color:var(--muted);font-size:.88rem;margin-top:14px;max-width:300px}
 .foot-social{display:flex;gap:10px;margin-top:18px}
-.foot-social a{
-  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
-  border:1px solid var(--line);background:var(--card);font-size:.9rem;transition:.25s;
-}
+.foot-social a{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--line);background:var(--card);font-size:.9rem;transition:.25s;}
 .foot-social a:hover{border-color:var(--blue);transform:translateY(-3px);color:var(--blue-2)}
 .foot-col h5{font-size:.82rem;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:16px;color:var(--blue-2)}
 .foot-col a{display:block;font-size:.88rem;color:var(--muted);padding:5px 0;transition:.2s}
 .foot-col a:hover{color:var(--text);transform:translateX(3px)}
-.foot-bottom{
-  max-width:1200px;margin:44px auto 0;padding-top:22px;
-  border-top:1px solid var(--line);display:flex;justify-content:space-between;
-  flex-wrap:wrap;gap:10px;font-size:.82rem;color:var(--muted);
-}
+.foot-bottom{max-width:1200px;margin:44px auto 0;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:var(--muted);}
 
 /* ====== REVEAL ANIMATION ====== */
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
 
 /* ====== RESPONSIVE ====== */
 @media(max-width:1024px){
@@ -356,14 +200,12 @@ footer{
   .ai-wrap{grid-template-columns:1fr}
 }
 @media(max-width:860px){
-  .nav-links{display:none}
-  .burger{display:grid}
+  .nav-links{display:none}.burger{display:grid}
   .hero-inner{grid-template-columns:1fr;text-align:center}
   .hero p.lead{margin-left:auto;margin-right:auto}
   .hero-cta,.hero-stats{justify-content:center}
   .about-grid,.contact-grid{grid-template-columns:1fr}
   .dolphin-stage{min-height:360px}
-  .chip.c1{left:-6px}.chip.c2{right:-6px}
 }
 @media(max-width:600px){
   section{padding:70px 18px}
@@ -371,30 +213,20 @@ footer{
   .products-grid,.tools-grid{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
   .ai-wrap{padding:34px 22px}
-  .hero-stats{gap:22px}
   .dolphin{width:230px;height:230px}
   .dolphin-ring{width:270px;height:270px}
   .dolphin-ring.r2{width:210px;height:210px}
-  .chip{font-size:.7rem;padding:6px 10px}
-  .nav-inner{padding:12px 16px}
-}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 
-<div class="bg-glow"><span></span><span></span><span></span></div>
+<div class="bg-glow"><span></span><span></span></div>
 
 <!-- ====== NAVBAR ====== -->
 <header class="navbar">
   <div class="nav-inner">
-    <a href="#home" class="logo">
-      <span class="logo-mark">🐬</span>
-      <span>FINORA<b>TECH</b></span>
-    </a>
+    <a href="#home" class="logo"><span class="logo-mark">🐬</span><span>FINORA<b>TECH</b></span></a>
     <nav class="nav-links" id="navLinks">
       <a href="#home" class="active">Home</a>
       <a href="#about">About Us</a>
@@ -404,21 +236,16 @@ footer{
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-actions">
-      <button class="icon-btn" id="themeBtn" aria-label="Ubah tema" title="Dark / Light mode">🌙</button>
-      <button class="icon-btn burger" id="burger" aria-label="Menu" title="Menu">☰</button>
-      <a href="#contact" class="btn btn-primary" style="display:none" id="navCta">Mulai</a>
+      <button class="icon-btn" id="themeBtn" aria-label="Ubah tema">🌙</button>
+      <button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
     </div>
   </div>
 </header>
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#home">Home</a>
-  <a href="#about">About Us</a>
-  <a href="#products">Products</a>
-  <a href="#ai">AI Technology</a>
-  <a href="#tools">Digital Tools</a>
-  <a href="#contact">Contact</a>
+  <a href="#home">Home</a><a href="#about">About Us</a><a href="#products">Products</a>
+  <a href="#ai">AI Technology</a><a href="#tools">Digital Tools</a><a href="#contact">Contact</a>
 </div>
 
 <!-- ====== HERO ====== -->
@@ -432,71 +259,27 @@ footer{
         <a href="#products" class="btn btn-primary">Jelajahi Produk →</a>
         <a href="#about" class="btn btn-ghost">Tentang Kami</a>
       </div>
-      <div class="hero-stats reveal d4">
-        <div><b>6+</b><span>Produk Unggulan</span></div>
-        <div><b>24/7</b><span>Dukungan AI</span></div>
-        <div><b>100%</b><span>Fokus Digital</span></div>
-      </div>
     </div>
-
     <div class="dolphin-stage">
-      <div class="dolphin-ring"></div>
-      <div class="dolphin-ring r2"></div>
+      <div class="dolphin-ring"></div><div class="dolphin-ring r2"></div>
       <div class="dolphin">
-        <!-- Maskot lumba-lumba futuristik -->
-        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maskot lumba-lumba FINORATECH">
+        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="dGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#5fc0ff"/>
-              <stop offset="45%" stop-color="#0a84ff"/>
-              <stop offset="100%" stop-color="#1b3bff"/>
-            </linearGradient>
-            <linearGradient id="dGrad2" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#d6ecff"/>
-              <stop offset="100%" stop-color="#7db8ff"/>
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="4" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
+            <linearGradient id="dGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5fc0ff"/><stop offset="45%" stop-color="#0a84ff"/><stop offset="100%" stop-color="#1b3bff"/></linearGradient>
+            <linearGradient id="dGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#d6ecff"/><stop offset="100%" stop-color="#7db8ff"/></linearGradient>
           </defs>
-          <!-- aura -->
           <ellipse cx="150" cy="150" rx="110" ry="100" fill="url(#dGrad)" opacity="0.07"/>
-          <!-- tubuh -->
-          <path d="M62 168
-                   C60 128 96 92 146 86
-                   C196 80 236 104 246 142
-                   C252 166 240 190 216 202
-                   C196 212 176 208 158 214
-                   C140 220 118 236 96 236
-                   C76 236 64 216 62 190 Z"
-                fill="url(#dGrad)" stroke="#9fd4ff" stroke-width="2"/>
-          <!-- perut / highlight -->
-          <path d="M96 186 C112 166 140 158 166 160 C192 162 208 176 206 192 C190 202 168 204 148 202 C128 200 110 196 96 186 Z"
-                fill="url(#dGrad2)" opacity="0.85"/>
-          <!-- sirip punggung -->
+          <path d="M62 168 C60 128 96 92 146 86 C196 80 236 104 246 142 C252 166 240 190 216 202 C196 212 176 208 158 214 C140 220 118 236 96 236 C76 236 64 216 62 190 Z" fill="url(#dGrad)" stroke="#9fd4ff" stroke-width="2"/>
+          <path d="M96 186 C112 166 140 158 166 160 C192 162 208 176 206 192 C190 202 168 204 148 202 C128 200 110 196 96 186 Z" fill="url(#dGrad2)" opacity="0.85"/>
           <path class="fin" d="M150 88 C158 62 176 52 192 58 C184 78 168 90 150 92 Z" fill="#3ea6ff"/>
-          <!-- ekor -->
           <path d="M62 176 C38 168 20 148 16 126 C40 130 56 146 64 164 Z" fill="#3ea6ff"/>
           <path d="M62 190 C42 204 34 224 40 244 C58 232 66 214 68 198 Z" fill="#1b6bff"/>
-          <!-- sirip samping -->
           <path class="fin" d="M150 186 C136 204 128 222 134 236 C150 226 160 210 162 196 Z" fill="#7db8ff"/>
-          <!-- mata -->
-          <circle cx="206" cy="132" r="11" fill="#eaf6ff"/>
-          <circle cx="208" cy="133" r="5.5" fill="#062a5e"/>
-          <circle cx="210" cy="131" r="1.8" fill="#ffffff"/>
-          <!-- garis teknologi -->
-          <path d="M176 110 C196 100 220 104 234 118" stroke="#d6ecff" stroke-width="2" fill="none" opacity="0.8" stroke-linecap="round"/>
-          <path d="M120 176 C136 172 152 176 164 186" stroke="#d6ecff" stroke-width="2" fill="none" opacity="0.7" stroke-linecap="round"/>
-          <!-- sensor futuristik -->
-          <circle cx="228" cy="150" r="3" fill="#5fc0ff" filter="url(#glow)"/>
-          <circle cx="120" cy="120" r="2.5" fill="#5fc0ff" filter="url(#glow)"/>
-          <circle cx="100" cy="200" r="2.5" fill="#5fc0ff" filter="url(#glow)"/>
+          <circle cx="206" cy="132" r="11" fill="#eaf6ff"/><circle cx="208" cy="133" r="5.5" fill="#062a5e"/><circle cx="210" cy="131" r="1.8" fill="#ffffff"/>
         </svg>
       </div>
       <div class="chip c1">🤖 <b>FinoraAI</b> aktif</div>
       <div class="chip c2">⚡ Sistem <b>real-time</b></div>
-      <div class="chip c3">🔒 <b>Secure</b> by design</div>
     </div>
   </div>
 </section>
@@ -512,22 +295,9 @@ footer{
     <div class="about-grid">
       <div class="reveal">
         <div class="about-list">
-          <div class="about-item">
-            <div class="ic">🎯</div>
-            <div><h4>Visi yang Jelas</h4><p>Menyederhanakan kompleksitas teknologi menjadi pengalaman yang intuitif dan menyenangkan.</p></div>
-          </div>
-          <div class="about-item">
-            <div class="ic">🚀</div>
-            <div><h4>Inovasi Berkelanjutan</h4><p>Setiap produk kami dikembangkan dengan standar premium, keamanan tinggi, dan performa ringan.</p></div>
-          </div>
-          <div class="about-item">
-            <div class="ic">🤝</div>
-            <div><h4>Berorientasi Pengguna</h4><p>Desain manusiawi, aksesibel, dan responsif di semua perangkat — dari Android hingga desktop.</p></div>
-          </div>
-          <div class="about-item">
-            <div class="ic">🐬</div>
-            <div><h4>Maskot Finora</h4><p>Lumba-lumba futuristik biru melambangkan kecerdasan, kecepatan, dan kepercayaan dalam menjelajah samudra digital.</p></div>
-          </div>
+          <div class="about-item"><div class="ic">🎯</div><div><h4>Visi yang Jelas</h4><p>Menyederhanakan kompleksitas teknologi menjadi pengalaman yang intuitif dan menyenangkan.</p></div></div>
+          <div class="about-item"><div class="ic">🚀</div><div><h4>Inovasi Berkelanjutan</h4><p>Setiap produk kami dikembangkan dengan standar premium, keamanan tinggi, dan performa ringan.</p></div></div>
+          <div class="about-item"><div class="ic">🤝</div><div><h4>Berorientasi Pengguna</h4><p>Desain manusiawi, aksesibel, dan responsif di semua perangkat — dari Android hingga desktop.</p></div></div>
         </div>
       </div>
       <div class="about-card reveal d2">
@@ -537,9 +307,7 @@ footer{
           <li style="display:flex;gap:10px;font-size:.9rem"><span style="color:var(--blue-2)">✔</span> Produk terintegrasi dalam satu ekosistem</li>
           <li style="display:flex;gap:10px;font-size:.9rem"><span style="color:var(--blue-2)">✔</span> Antarmuka modern, futuristik, dan responsif</li>
           <li style="display:flex;gap:10px;font-size:.9rem"><span style="color:var(--blue-2)">✔</span> Didukung AI dan otomasi cerdas</li>
-          <li style="display:flex;gap:10px;font-size:.9rem"><span style="color:var(--blue-2)">✔</span> Fokus pada keamanan dan privasi data</li>
         </ul>
-        <a href="#products" class="btn btn-primary" style="margin-top:24px">Lihat Produk Kami</a>
       </div>
     </div>
   </div>
@@ -555,58 +323,58 @@ footer{
     </div>
     <div class="products-grid">
       
-      <!-- Produk 1 -->
+      <!-- 1. Keuangan -->
       <article class="product-card reveal d1">
         <span class="tag-mini">Finance</span>
         <div class="product-icon">💰</div>
         <h3>Finora Keuangan</h3>
-        <p>Kelola keuangan pribadi dan bisnis dengan dashboard cerdas, laporan otomatis, dan insight berbasis AI.</p>
-        <a href="https://wa.me/6289502639418?text=Halo%20saya%20tertarik%20dengan%20Finora%20Keuangan" target="_blank" class="btn btn-primary">Coba Sekarang</a>
+        <p>Dashboard keuangan aman dengan proteksi sandi dan laporan otomatis.</p>
+        <button onclick="openModal('keuangan')" class="btn btn-primary">Buka Aplikasi</button>
       </article>
 
-      <!-- Produk 2 -->
+      <!-- 2. Catatan Pro -->
       <article class="product-card reveal d2">
         <span class="tag-mini">Notes</span>
         <div class="product-icon">📒</div>
         <h3>Catatan Pro</h3>
-        <p>Aplikasi catatan profesional dengan sinkronisasi real-time, organisasi pintar, dan mode fokus.</p>
-        <a href="https://wa.me/6289502639418?text=Halo%20saya%20tertarik%20dengan%20Catatan%20Pro" target="_blank" class="btn btn-primary">Buka Aplikasi</a>
+        <p>Aplikasi catatan profesional dengan sinkronisasi real-time dan mode fokus.</p>
+        <button onclick="openModal('catatan')" class="btn btn-primary">Buka Aplikasi</button>
       </article>
 
-      <!-- Produk 3 -->
+      <!-- 3. Learn -->
       <article class="product-card reveal d3">
         <span class="tag-mini">Learning</span>
         <div class="product-icon">🎓</div>
         <h3>FinoraLearn</h3>
-        <p>Platform pembelajaran adaptif dengan jalur belajar personal dan konten interaktif berkualitas.</p>
-        <a href="https://wa.me/6289502639418?text=Halo%20saya%20tertarik%20dengan%20FinoraLearn" target="_blank" class="btn btn-primary">Mulai Belajar</a>
+        <p>Platform pembelajaran adaptif dengan jalur belajar personal dan konten interaktif.</p>
+        <button onclick="openModal('learn')" class="btn btn-primary">Mulai Belajar</button>
       </article>
 
-      <!-- Produk 4 -->
+      <!-- 4. AI -->
       <article class="product-card reveal d1">
         <span class="tag-mini">AI</span>
         <div class="product-icon">🤖</div>
         <h3>FinoraAI</h3>
-        <p>Asisten cerdas berbasis AI untuk menjawab pertanyaan, menulis, dan mengotomatiskan pekerjaan.</p>
-        <a href="https://wa.me/6289502639418?text=Halo%20saya%20tertarik%20dengan%20FinoraAI" target="_blank" class="btn btn-primary">Tanya AI</a>
+        <p>Asisten cerdas berbasis AI untuk menjawab pertanyaan dan mengotomatiskan pekerjaan.</p>
+        <button onclick="openModal('ai')" class="btn btn-primary">Tanya AI</button>
       </article>
 
-      <!-- Produk 5 -->
+      <!-- 5. Tools -->
       <article class="product-card reveal d2">
         <span class="tag-mini">Tools</span>
         <div class="product-icon">🛠️</div>
         <h3>FinoraTools</h3>
-        <p>Kumpulan alat digital produktivitas: konverter, generator, dan utilitas harian dalam satu tempat.</p>
-        <a href="https://wa.me/6289502639418?text=Halo%20saya%20tertarik%20dengan%20FinoraTools" target="_blank" class="btn btn-primary">Gunakan Tools</a>
+        <p>Kumpulan alat digital produktivitas: konverter, generator, dan utilitas harian.</p>
+        <button onclick="openModal('tools')" class="btn btn-primary">Gunakan Tools</button>
       </article>
 
-      <!-- Produk 6 -->
+      <!-- 6. Web -->
       <article class="product-card reveal d3">
         <span class="tag-mini">Web</span>
         <div class="product-icon">🌐</div>
         <h3>FinoraWeb</h3>
-        <p>Layanan pembuatan website cepat, modern, dan responsif untuk personal branding maupun bisnis.</p>
-        <a href="https://wa.me/6289502639418?text=Halo%20saya%20tertarik%20dengan%20FinoraWeb" target="_blank" class="btn btn-primary">Bangun Website</a>
+        <p>Layanan pembuatan website cepat, modern, dan responsif untuk bisnis Anda.</p>
+        <button onclick="openModal('web')" class="btn btn-primary">Bangun Website</button>
       </article>
 
     </div>
@@ -624,7 +392,7 @@ footer{
         <a href="#contact" class="btn btn-primary">Konsultasi AI</a>
       </div>
       <div class="ai-steps reveal d2">
-        <div class="ai-step"><span class="num">01</span><div><h4>Analisis Data Cerdas</h4><p>AI menganalisis pola untuk memberikan insight yang relevan dan akurat.</p></div></div>
+        <div class="ai-step"><span class="num">01</span><div><h4>Analisis Data Cerdas</h4><p>AI menganalisis pola data untuk memberikan insight yang relevan dan akurat.</p></div></div>
         <div class="ai-step"><span class="num">02</span><div><h4>Otomasi Tugas</h4><p>Hemat waktu dengan alur kerja otomatis yang dapat disesuaikan.</p></div></div>
         <div class="ai-step"><span class="num">03</span><div><h4>Personalisasi Pengalaman</h4><p>Setiap pengguna mendapatkan pengalaman yang disesuaikan secara dinamis.</p></div></div>
         <div class="ai-step"><span class="num">04</span><div><h4>Keamanan Berlapis</h4><p>Data diproses dengan enkripsi dan standar privasi tinggi.</p></div></div>
@@ -642,10 +410,10 @@ footer{
       <p>Percepat pekerjaan harian Anda dengan tools ringan, cepat, dan siap pakai.</p>
     </div>
     <div class="tools-grid">
-      <div class="tool reveal d1"><span class="em">📊</span><h4>Dashboard</h4><p>Pantau metrik penting</p></div>
-      <div class="tool reveal d2"><span class="em">🔐</span><h4>Secure Vault</h4><p>Simpan data aman</p></div>
-      <div class="tool reveal d3"><span class="em">⚙️</span><h4>Auto Workflow</h4><p>Otomasi proses</p></div>
-      <div class="tool reveal d4"><span class="em">📱</span><h4>Mobile Ready</h4><p>Responsif di semua alat</p></div>
+      <div class="tool reveal d1" onclick="openModal('tools')"><span class="em">📊</span><h4>Dashboard</h4><p>Pantau metrik penting</p></div>
+      <div class="tool reveal d2" onclick="openModal('keuangan')"><span class="em">🔐</span><h4>Secure Vault</h4><p>Simpan data aman</p></div>
+      <div class="tool reveal d3" onclick="openModal('tools')"><span class="em">⚙️</span><h4>Auto Workflow</h4><p>Otomasi proses</p></div>
+      <div class="tool reveal d4" onclick="openModal('web')"><span class="em">📱</span><h4>Mobile Ready</h4><p>Responsif di semua alat</p></div>
     </div>
   </div>
 </section>
@@ -663,27 +431,14 @@ footer{
         <a href="mailto:finoratech6@gmail.com" class="contact-line"><div class="ic">📧</div><div><b>Email</b><span>finoratech6@gmail.com</span></div></a>
         <a href="https://wa.me/6289502639418" target="_blank" class="contact-line"><div class="ic">📱</div><div><b>WhatsApp</b><span>+62 895 0263 9418</span></div></a>
         <div class="contact-line"><div class="ic">📍</div><div><b>Lokasi</b><span>Jakarta, Indonesia</span></div></div>
-        <div class="contact-line"><div class="ic">⏰</div><div><b>Jam Layanan</b><span>Senin – Jumat, 09.00 – 18.00 WIB</span></div></div>
       </div>
-      
-      <!-- Form Kontak -->
       <form class="form reveal d2" id="contactForm" novalidate>
-        <div class="field">
-          <label for="name">Nama Lengkap</label>
-          <input type="text" id="name" name="name" placeholder="Nama Anda" required>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="email@contoh.com" required>
-        </div>
-        <div class="field">
-          <label for="message">Pesan</label>
-          <textarea id="message" name="message" placeholder="Tulis pesan Anda..." required></textarea>
-        </div>
+        <div class="field"><label>Nama Lengkap</label><input type="text" name="name" placeholder="Nama Anda" required></div>
+        <div class="field"><label>Email</label><input type="email" name="email" placeholder="email@contoh.com" required></div>
+        <div class="field"><label>Pesan</label><textarea name="message" placeholder="Tulis pesan Anda..." required></textarea></div>
         <button type="submit" class="btn btn-primary">Kirim Pesan</button>
         <div class="form-msg" id="formMsg"></div>
       </form>
-      
     </div>
   </div>
 </section>
@@ -694,35 +449,10 @@ footer{
     <div class="foot-brand">
       <a href="#home" class="logo"><span class="logo-mark">🐬</span><span>FINORA<b>TECH</b></span></a>
       <p>Ekosistem teknologi digital premium untuk masa depan yang lebih cerdas, aman, dan terhubung.</p>
-      <div class="foot-social">
-        <a href="https://instagram.com" target="_blank" aria-label="Instagram">📷</a>
-        <a href="https://x.com" target="_blank" aria-label="X">𝕏</a>
-        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
-        <a href="https://youtube.com" target="_blank" aria-label="YouTube">▶</a>
-      </div>
     </div>
-    <div class="foot-col">
-      <h5>Produk</h5>
-      <a href="#products">Finora Keuangan</a>
-      <a href="#products">Catatan Pro</a>
-      <a href="#products">FinoraLearn</a>
-      <a href="#products">FinoraAI</a>
-      <a href="#products">FinoraTools</a>
-      <a href="#products">FinoraWeb</a>
-    </div>
-    <div class="foot-col">
-      <h5>Perusahaan</h5>
-      <a href="#about">About Us</a>
-      <a href="#ai">AI Technology</a>
-      <a href="#tools">Digital Tools</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="foot-col">
-      <h5>Legal</h5>
-      <a href="#home">Privacy Policy</a>
-      <a href="#home">Terms of Service</a>
-      <a href="#home">Cookie Policy</a>
-    </div>
+    <div class="foot-col"><h5>Produk</h5><a href="#products">Finora Keuangan</a><a href="#products">Catatan Pro</a><a href="#products">FinoraLearn</a><a href="#products">FinoraAI</a><a href="#products">FinoraTools</a><a href="#products">FinoraWeb</a></div>
+    <div class="foot-col"><h5>Perusahaan</h5><a href="#about">About Us</a><a href="#ai">AI Technology</a><a href="#tools">Digital Tools</a><a href="#contact">Contact</a></div>
+    <div class="foot-col"><h5>Legal</h5><a href="#home">Privacy Policy</a><a href="#home">Terms of Service</a></div>
   </div>
   <div class="foot-bottom">
     <span>© <span id="year"></span> FINORATECH. All rights reserved.</span>
@@ -730,13 +460,92 @@ footer{
   </div>
 </footer>
 
+<!-- ====== MODAL POP-UP APLIKASI ====== -->
+<div class="modal-overlay" id="appModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    
+    <!-- 1. Keuangan (Password) -->
+    <div id="view-keuangan" style="display:none">
+      <span class="lock-icon">🔐</span>
+      <h3 style="text-align:center">Finora Keuangan</h3>
+      <p style="text-align:center">Masukkan PIN/Sandi untuk membuka brankas keuangan Anda.</p>
+      <div class="field"><input type="password" id="pinKeuangan" placeholder="••••••" style="text-align:center;letter-spacing:5px;font-size:1.2rem;"></div>
+      <button class="btn btn-primary" style="width:100%" onclick="cekPin()">Buka Brankas</button>
+      <p id="pinMsg" style="text-align:center;font-size:.8rem;color:#ff4757;margin-top:10px;"></p>
+    </div>
+
+    <!-- 2. Catatan Pro -->
+    <div id="view-catatan" style="display:none">
+      <h3>📒 Catatan Pro</h3>
+      <p>Tulis catatan Anda di sini (tersimpan sementara di memori).</p>
+      <div class="field"><textarea id="noteArea" placeholder="Tulis catatan..." style="min-height:150px;"></textarea></div>
+      <button class="btn btn-primary" style="width:100%" onclick="saveNote()">Simpan Catatan</button>
+    </div>
+
+    <!-- 3. Learn -->
+    <div id="view-learn" style="display:none">
+      <h3>🎓 FinoraLearn</h3>
+      <p>Selamat datang di kelas interaktif!</p>
+      <div style="background:var(--card);padding:20px;border-radius:12px;border:1px solid var(--line);margin-bottom:15px;">
+        <h4 style="color:var(--blue-2)">Modul 1: Dasar Digital</h4>
+        <p style="font-size:.85rem;margin-top:5px;">Progres: <b>0%</b></p>
+        <div style="width:100%;height:6px;background:rgba(255,255,255,.1);border-radius:10px;margin-top:8px;"><div style="width:0%;height:100%;background:var(--blue);border-radius:10px;"></div></div>
+      </div>
+      <button class="btn btn-primary" style="width:100%" onclick="alert('Materi akan segera hadir!')">Mulai Modul</button>
+    </div>
+
+    <!-- 4. AI -->
+    <div id="view-ai" style="display:none">
+      <h3>🤖 FinoraAI</h3>
+      <p>Tanyakan apa saja pada asisten cerdas kami.</p>
+      <div class="chat-box" id="chatBox">
+        <div class="chat-bubble ai">Halo! Saya FinoraAI. Ada yang bisa saya bantu hari ini?</div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="chatInput" placeholder="Ketik pesan..." style="flex:1;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);">
+        <button class="btn btn-primary" onclick="sendChat()">Kirim</button>
+      </div>
+    </div>
+
+    <!-- 5. Tools -->
+    <div id="view-tools" style="display:none">
+      <h3>🛠️ FinoraTools</h3>
+      <p>Kumpulan utilitas digital dalam satu tempat.</p>
+      <div class="field">
+        <label>Konverter Huruf (Kapital)</label>
+        <input type="text" id="toolInput" placeholder="Ketik teks..." oninput="document.getElementById('toolOutput').value = this.value.toUpperCase()">
+      </div>
+      <div class="field">
+        <label>Hasil:</label>
+        <input type="text" id="toolOutput" readonly style="background:rgba(10,132,255,.1);border-color:var(--blue);">
+      </div>
+    </div>
+
+    <!-- 6. Web -->
+    <div id="view-web" style="display:none">
+      <h3>🌐 FinoraWeb</h3>
+      <p>Simulasikan pembuatan website impian Anda.</p>
+      <div class="field"><label>Nama Bisnis</label><input type="text" id="webName" placeholder="Contoh: Kopi Senja" oninput="updateWebPreview()"></div>
+      <div class="field"><label>Warna Utama</label><input type="color" id="webColor" value="#0a84ff" style="height:40px;padding:2px;" oninput="updateWebPreview()"></div>
+      <div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center;margin-top:15px;">
+        <h3 id="previewTitle" style="font-size:1.2rem;margin-bottom:5px;">Nama Bisnis Anda</h3>
+        <p style="font-size:.8rem;color:var(--muted)">Website modern & responsif</p>
+        <button class="btn" id="previewBtn" style="margin-top:10px;padding:8px 16px;font-size:.8rem;color:#fff;">Hubungi Kami</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <script>
 (function(){
   'use strict';
 
+  /* ====== TAHUN ====== */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* Dark / Light Mode */
+  /* ====== DARK / LIGHT MODE ====== */
   var themeBtn = document.getElementById('themeBtn');
   var saved = localStorage.getItem('finora-theme');
   if(saved === 'light'){ document.body.classList.add('light'); themeBtn.textContent = '☀️'; }
@@ -747,7 +556,7 @@ footer{
     localStorage.setItem('finora-theme', isLight ? 'light' : 'dark');
   });
 
-  /* Mobile Menu */
+  /* ====== MOBILE MENU ====== */
   var burger = document.getElementById('burger');
   var mobileMenu = document.getElementById('mobileMenu');
   burger.addEventListener('click', function(){
@@ -761,7 +570,7 @@ footer{
     });
   });
 
-  /* Active Nav Link */
+  /* ====== ACTIVE NAV LINK ====== */
   var sections = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', function(){
@@ -775,7 +584,7 @@ footer{
     });
   });
 
-  /* Reveal on Scroll */
+  /* ====== REVEAL ON SCROLL ====== */
   var revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
@@ -788,16 +597,7 @@ footer{
     revealEls.forEach(function(el){ el.classList.add('in'); });
   }
 
-  /* Hover Glow Effect */
-  document.querySelectorAll('.product-card').forEach(function(card){
-    card.addEventListener('mousemove', function(e){
-      var r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-    });
-  });
-
-  /* Form Kontak (Kirim ke Email) */
+  /* ====== FORM CONTACT ====== */
   var form = document.getElementById('contactForm');
   var msg = document.getElementById('formMsg');
   form.addEventListener('submit', function(e){
@@ -818,16 +618,14 @@ footer{
       msg.classList.add('err');
       return;
     }
-    
     var mailtoLink = "mailto:finoratech6@gmail.com?subject=Pesan dari " + encodeURIComponent(name) + " (" + encodeURIComponent(email) + ")&body=" + encodeURIComponent(message);
     window.location.href = mailtoLink;
-    
     msg.textContent = '✅ Membuka aplikasi email Anda...';
     msg.classList.add('ok');
     form.reset();
   });
 
-  /* Smooth Scroll */
+  /* ====== SMOOTH SCROLL ====== */
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var id = a.getAttribute('href');
@@ -843,6 +641,101 @@ footer{
   });
 
 })();
+
+/* ====== LOGIKA MODAL APLIKASI ====== */
+var modal = document.getElementById('appModal');
+var views = ['keuangan', 'catatan', 'learn', 'ai', 'tools', 'web'];
+
+function openModal(appName) {
+  modal.classList.add('open');
+  // Sembunyikan semua view
+  views.forEach(function(v) {
+    document.getElementById('view-' + v).style.display = 'none';
+  });
+  // Tampilkan view yang dipilih
+  var targetView = document.getElementById('view-' + appName);
+  if(targetView) targetView.style.display = 'block';
+  
+  // Reset form khusus
+  if(appName === 'keuangan') {
+    document.getElementById('pinKeuangan').value = '';
+    document.getElementById('pinMsg').textContent = '';
+  }
+  if(appName === 'ai') {
+    document.getElementById('chatInput').focus();
+  }
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+}
+
+// Tutup modal jika klik di luar kotak
+modal.addEventListener('click', function(e) {
+  if(e.target === modal) closeModal();
+});
+
+/* 1. Logika Keuangan (Sandi) */
+function cekPin() {
+  var pin = document.getElementById('pinKeuangan').value;
+  var msg = document.getElementById('pinMsg');
+  if(pin === '123456') { // Sandi contoh: 123456
+    msg.style.color = '#39d98a';
+    msg.textContent = '✅ Akses Diberikan! Membuka dashboard...';
+    setTimeout(function() {
+      alert('Selamat datang di Dashboard Keuangan Finora! (Simulasi)');
+      closeModal();
+    }, 1000);
+  } else {
+    msg.style.color = '#ff4757';
+    msg.textContent = '❌ Sandi salah. Coba lagi (Hint: 123456)';
+  }
+}
+
+/* 2. Logika Catatan Pro */
+function saveNote() {
+  var note = document.getElementById('noteArea').value;
+  if(note.trim() === '') {
+    alert('Catatan tidak boleh kosong!');
+    return;
+  }
+  alert('✅ Catatan berhasil disimpan sementara!');
+  closeModal();
+}
+
+/* 4. Logika AI Chat */
+function sendChat() {
+  var input = document.getElementById('chatInput');
+  var chatBox = document.getElementById('chatBox');
+  var text = input.value.trim();
+  if(!text) return;
+
+  // Tampilkan pesan user
+  var userBubble = document.createElement('div');
+  userBubble.className = 'chat-bubble user';
+  userBubble.textContent = text;
+  chatBox.appendChild(userBubble);
+  
+  input.value = '';
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  // Simulasi balasan AI
+  setTimeout(function() {
+    var aiBubble = document.createElement('div');
+    aiBubble.className = 'chat-bubble ai';
+    aiBubble.textContent = 'Menarik! Saat ini saya masih simulasi. Di versi asli, saya akan menjawab menggunakan kecerdasan artifisial penuh.';
+    chatBox.appendChild(aiBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 1000);
+}
+
+/* 6. Logika Web Preview */
+function updateWebPreview() {
+  var name = document.getElementById('webName').value || 'Nama Bisnis Anda';
+  var color = document.getElementById('webColor').value;
+  document.getElementById('previewTitle').textContent = name;
+  document.getElementById('previewBtn').style.background = color;
+}
 </script>
 </body>
 </html>
