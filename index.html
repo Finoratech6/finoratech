@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FINORATECH — Ekosistem Teknologi Digital</title>
+<meta name="description" content="FINORATECH — ekosistem teknologi digital premium: keuangan, AI, pembelajaran, dan tools digital.">
+<style>
+/* ====== RESET & VARIABEL ====== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0a84ff;
+  --blue-2:#3ea6ff;
+  --blue-glow:rgba(10,132,255,.45);
+  --bg:#05070d;
+  --bg-2:#0b1020;
+  --card:#0f1526;
+  --card-2:#131a2e;
+  --text:#eaf1ff;
+  --muted:#9aa8c7;
+  --line:rgba(120,150,220,.16);
+  --white:#ffffff;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(0,0,0,.55);
+  --font:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+}
+body.light{
+  --bg:#f4f7ff;
+  --bg-2:#eaf0ff;
+  --card:#ffffff;
+  --card-2:#f0f5ff;
+  --text:#0a1226;
+  --muted:#4d5a7a;
+  --line:rgba(10,40,100,.14);
+  --shadow:0 18px 45px rgba(20,40,90,.12);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  transition:background .4s,color .4s;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+
+/* ====== BACKGROUND GLOW ====== */
+.bg-glow{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.bg-glow span{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+.bg-glow span:nth-child(1){width:520px;height:520px;background:var(--blue);top:-180px;left:-150px;opacity:.22}
+.bg-glow span:nth-child(2){width:420px;height:420px;background:#7a5cff;bottom:-160px;right:-120px;opacity:.14}
+.bg-glow span:nth-child(3){width:300px;height:300px;background:var(--blue-2);top:40%;left:60%;opacity:.08}
+
+/* ====== NAVBAR ====== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  backdrop-filter:blur(14px);
+  background:rgba(5,7,13,.72);
+  border-bottom:1px solid var(--line);
+  transition:background .4s;
+}
+body.light .navbar{background:rgba(244,247,255,.82)}
+.nav-inner{
+  max-width:1200px;margin:auto;padding:14px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;font-size:1.15rem}
+.logo-mark{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,var(--blue),#7a5cff);
+  display:grid;place-items:center;font-size:1.1rem;
+  box-shadow:0 0 22px var(--blue-glow);
+}
+.logo b{color:var(--blue-2)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{
+  padding:8px 14px;border-radius:10px;font-size:.92rem;color:var(--muted);
+  transition:.25s;font-weight:500;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(10,132,255,.14)}
+body.light .nav-links a:hover,body.light .nav-links a.active{color:var(--blue);background:rgba(10,132,255,.1)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{
+  width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+  border:1px solid var(--line);background:var(--card);font-size:1rem;
+  transition:.25s;
+}
+.icon-btn:hover{border-color:var(--blue);box-shadow:0 0 18px var(--blue-glow);transform:translateY(-1px)}
+.burger{display:none}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 22px;border-radius:12px;font-weight:600;font-size:.92rem;
+  transition:.28s;border:1px solid transparent;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue),#3ea6ff);
+  color:#fff;box-shadow:0 8px 26px var(--blue-glow);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px var(--blue-glow)}
+.btn-ghost{border-color:var(--line);background:var(--card);color:var(--text)}
+.btn-ghost:hover{border-color:var(--blue);transform:translateY(-2px)}
+
+/* Mobile nav */
+.mobile-menu{
+  display:none;position:fixed;inset:64px 0 auto 0;z-index:999;
+  background:var(--bg-2);border-bottom:1px solid var(--line);
+  padding:14px 22px 24px;flex-direction:column;gap:6px;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:12px 14px;border-radius:10px;font-weight:500}
+.mobile-menu a:hover{background:rgba(10,132,255,.14)}
+
+/* ====== HERO ====== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 22px 80px;position:relative;
+}
+.hero-inner{
+  max-width:1200px;margin:auto;width:100%;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px;border-radius:100px;font-size:.78rem;font-weight:600;
+  border:1px solid rgba(10,132,255,.35);background:rgba(10,132,255,.1);
+  color:var(--blue-2);margin-bottom:22px;letter-spacing:.4px;
+}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--blue-2);box-shadow:0 0 10px var(--blue-2);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{
+  font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.12;
+  font-weight:800;letter-spacing:-1px;margin-bottom:20px;
+}
+.hero h1 .grad{
+  background:linear-gradient(110deg,var(--blue-2),#7a5cff 60%,var(--blue));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{color:var(--muted);font-size:1.05rem;max-width:520px;margin-bottom:30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.hero-stats div b{display:block;font-size:1.5rem;color:var(--text)}
+.hero-stats div span{font-size:.82rem;color:var(--muted)}
+
+/* ====== DOLPHIN ====== */
+.dolphin-stage{position:relative;display:grid;place-items:center;min-height:420px}
+.dolphin-ring{
+  position:absolute;width:340px;height:340px;border-radius:50%;
+  border:1px solid rgba(10,132,255,.25);
+  box-shadow:0 0 80px rgba(10,132,255,.18) inset,0 0 80px rgba(10,132,255,.12);
+  animation:spinSlow 26s linear infinite;
+}
+.dolphin-ring::after{
+  content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;
+  border-radius:50%;background:var(--blue-2);box-shadow:0 0 14px var(--blue-2);
+  transform:translateX(-50%);
+}
+.dolphin-ring.r2{width:260px;height:260px;animation-duration:18s;animation-direction:reverse;border-style:dashed;opacity:.6}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+
+.dolphin{
+  width:300px;height:300px;position:relative;z-index:2;
+  animation:floatDolphin 5s ease-in-out infinite;
+  filter:drop-shadow(0 0 26px rgba(10,132,255,.55));
+}
+@keyframes floatDolphin{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-22px) rotate(3deg)}
+}
+.dolphin svg{width:100%;height:100%}
+.dolphin .fin{animation:finWave 2.6s ease-in-out infinite;transform-origin:center}
+@keyframes finWave{0%,100%{transform:rotate(0)}50%{transform:rotate(-8deg)}}
+
+/* chips melayang */
+.chip{
+  position:absolute;z-index:3;padding:8px 14px;border-radius:12px;
+  background:var(--card);border:1px solid var(--line);
+  font-size:.78rem;font-weight:600;color:var(--muted);
+  box-shadow:var(--shadow);backdrop-filter:blur(8px);
+  animation:floatChip 6s ease-in-out infinite;
+}
+.chip b{color:var(--blue-2)}
+.chip.c1{top:8%;left:0;animation-delay:.2s}
+.chip.c2{bottom:16%;right:-4px;animation-delay:1.4s}
+.chip.c3{bottom:2%;left:14%;animation-delay:2.6s}
+@keyframes floatChip{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ====== SECTION ====== */
+section{padding:90px 22px;position:relative}
+.container{max-width:1200px;margin:auto}
+.sec-head{max-width:680px;margin-bottom:48px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-tag{
+  font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--blue-2);margin-bottom:12px;display:block;
+}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.6px;line-height:1.2}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:1rem}
+
+/* ====== ABOUT ====== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-card{
+  background:linear-gradient(160deg,var(--card),var(--card-2));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.about-card::before{
+  content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;
+  background:radial-gradient(circle,var(--blue-glow),transparent 70%);
+}
+.about-list{display:grid;gap:16px;margin-top:8px}
+.about-item{display:flex;gap:14px;align-items:flex-start}
+.about-item .ic{
+  min-width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(10,132,255,.12);border:1px solid rgba(10,132,255,.3);font-size:1.15rem;
+}
+.about-item h4{font-size:.98rem;margin-bottom:2px}
+.about-item p{font-size:.86rem;color:var(--muted)}
+
+/* ====== PRODUCTS ====== */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.product-card{
+  background:linear-gradient(165deg,var(--card),var(--card-2));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;position:relative;overflow:hidden;
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+  display:flex;flex-direction:column;
+}
+.product-card::after{
+  content:'';position:absolute;inset:0;border-radius:var(--radius);
+  background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(10,132,255,.16),transparent 55%);
+  opacity:0;transition:opacity .35s;pointer-events:none;
+}
+.product-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(10,132,255,.55);
+  box-shadow:0 22px 50px rgba(10,132,255,.22);
+}
+.product-card:hover::after{opacity:1}
+.product-icon{
+  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  font-size:1.4rem;margin-bottom:18px;
+  background:linear-gradient(135deg,rgba(10,132,255,.22),rgba(122,92,255,.16));
+  border:1px solid rgba(10,132,255,.35);
+  transition:transform .35s;
+}
+.product-card:hover .product-icon{transform:scale(1.08) rotate(-4deg)}
+.product-card h3{font-size:1.12rem;margin-bottom:8px}
+.product-card p{font-size:.88rem;color:var(--muted);margin-bottom:20px;flex:1}
+.product-card .btn{width:100%;padding:10px 16px;font-size:.85rem}
+.tag-mini{
+  position:absolute;top:16px;right:16px;font-size:.66rem;font-weight:700;
+  padding:4px 10px;border-radius:100px;letter-spacing:.6px;text-transform:uppercase;
+  background:rgba(10,132,255,.14);color:var(--blue-2);border:1px solid rgba(10,132,255,.3);
+}
+
+/* ====== AI SECTION ====== */
+.ai-wrap{
+  background:linear-gradient(140deg,rgba(10,132,255,.12),rgba(122,92,255,.08));
+  border:1px solid var(--line);border-radius:28px;padding:52px 40px;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.ai-wrap::before{
+  content:'';position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,var(--blue-glow),transparent 65%);
+  top:-160px;right:-120px;
+}
+.ai-steps{display:grid;gap:16px;position:relative;z-index:2}
+.ai-step{
+  display:flex;gap:16px;padding:16px 18px;border-radius:14px;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);
+  transition:.3s;
+}
+body.light .ai-step{background:rgba(255,255,255,.7)}
+.ai-step:hover{border-color:var(--blue);transform:translateX(6px)}
+.ai-step .num{
+  min-width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  font-weight:800;font-size:.85rem;color:#fff;
+  background:linear-gradient(135deg,var(--blue),#7a5cff);
+}
+.ai-step h4{font-size:.95rem;margin-bottom:2px}
+.ai-step p{font-size:.84rem;color:var(--muted)}
+
+/* ====== TOOLS ====== */
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.tool{
+  padding:26px 22px;border-radius:16px;background:var(--card);
+  border:1px solid var(--line);transition:.3s;text-align:center;
+}
+.tool:hover{border-color:var(--blue);transform:translateY(-6px);box-shadow:0 16px 38px rgba(10,132,255,.18)}
+.tool .em{font-size:1.7rem;margin-bottom:12px;display:block}
+.tool h4{font-size:.95rem;margin-bottom:4px}
+.tool p{font-size:.8rem;color:var(--muted)}
+
+/* ====== CONTACT ====== */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+.contact-info{display:grid;gap:16px}
+.contact-line{display:flex;gap:14px;align-items:center;padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.contact-line .ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:rgba(10,132,255,.12);border:1px solid rgba(10,132,255,.3);font-size:1.1rem}
+.contact-line b{display:block;font-size:.9rem}
+.contact-line span{font-size:.82rem;color:var(--muted)}
+.form{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;box-shadow:var(--shadow);
+}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px;color:var(--muted)}
+.field input,.field textarea{
+  width:100%;padding:12px 15px;border-radius:11px;font-family:inherit;font-size:.92rem;
+  background:var(--bg-2);color:var(--text);border:1px solid var(--line);
+  outline:none;transition:.25s;
+}
+.field input:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(10,132,255,.16)}
+.field textarea{resize:vertical;min-height:110px}
+.form .btn{width:100%}
+.form-msg{margin-top:14px;font-size:.86rem;font-weight:600;text-align:center;min-height:20px}
+.form-msg.ok{color:#39d98a}
+.form-msg.err{color:#ff6b81}
+
+/* ====== FOOTER ====== */
+footer{
+  border-top:1px solid var(--line);background:var(--bg-2);
+  padding:60px 22px 26px;margin-top:40px;
+}
+.foot-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px}
+.foot-brand p{color:var(--muted);font-size:.88rem;margin-top:14px;max-width:300px}
+.foot-social{display:flex;gap:10px;margin-top:18px}
+.foot-social a{
+  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  border:1px solid var(--line);background:var(--card);font-size:.9rem;transition:.25s;
+}
+.foot-social a:hover{border-color:var(--blue);transform:translateY(-3px);color:var(--blue-2)}
+.foot-col h5{font-size:.82rem;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:16px;color:var(--blue-2)}
+.foot-col a{display:block;font-size:.88rem;color:var(--muted);padding:5px 0;transition:.2s}
+.foot-col a:hover{color:var(--text);transform:translateX(3px)}
+.foot-bottom{
+  max-width:1200px;margin:44px auto 0;padding-top:22px;
+  border-top:1px solid var(--line);display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;font-size:.82rem;color:var(--muted);
+}
+
+/* ====== REVEAL ANIMATION ====== */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
+
+/* ====== RESPONSIVE ====== */
+@media(max-width:1024px){
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .tools-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .ai-wrap{grid-template-columns:1fr}
+}
+@media(max-width:860px){
+  .nav-links{display:none}
+  .burger{display:grid}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero p.lead{margin-left:auto;margin-right:auto}
+  .hero-cta,.hero-stats{justify-content:center}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .dolphin-stage{min-height:360px}
+  .chip.c1{left:-6px}.chip.c2{right:-6px}
+}
+@media(max-width:600px){
+  section{padding:70px 18px}
+  .hero{padding:110px 18px 60px}
+  .products-grid,.tools-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .ai-wrap{padding:34px 22px}
+  .hero-stats{gap:22px}
+  .dolphin{width:230px;height:230px}
+  .dolphin-ring{width:270px;height:270px}
+  .dolphin-ring.r2{width:210px;height:210px}
+  .chip{font-size:.7rem;padding:6px 10px}
+  .nav-inner{padding:12px 16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-glow"><span></span><span></span><span></span></div>
+
+<!-- ====== NAVBAR ====== -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <span class="logo-mark">🐬</span>
+      <span>FINORA<b>TECH</b></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#products">Products</a>
+      <a href="#ai">AI Technology</a>
+      <a href="#tools">Digital Tools</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Ubah tema" title="Dark / Light mode">🌙</button>
+      <button class="icon-btn burger" id="burger" aria-label="Menu" title="Menu">☰</button>
+      <a href="#contact" class="btn btn-primary" style="display:none" id="navCta">Mulai</a>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#products">Products</a>
+  <a href="#ai">AI Technology</a>
+  <a href="#tools">Digital Tools</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="badge reveal"><span class="dot"></span> EKOSISTEM TEKNOLOGI DIGITAL</span>
+      <h1 class="reveal d1">Bangun Masa Depan Digital<br>Bersama <span class="grad">FINORATECH</span></h1>
+      <p class="lead reveal d2">Platform ekosistem teknologi premium yang menyatukan keuangan, kecerdasan artifisial, pembelajaran, dan tools digital dalam satu pengalaman yang mulus, aman, dan futuristik.</p>
+      <div class="hero-cta reveal d3">
+        <a href="#products" class="btn btn-primary">Jelajahi Produk →</a>
+        <a href="#about" class="btn btn-ghost">Tentang Kami</a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div><b>6+</b><span>Produk Unggulan</span></div>
+        <div><b>24/7</b><span>Dukungan AI</span></div>
+        <div><b>100%</b><span>Fokus Digital</span></div>
+      </div>
+    </div>
+
+    <div class="dolphin-stage">
+      <div class="dolphin-ring"></div>
+      <div class="dolphin-ring r2"></div>
+      <div class="dolphin">
+        <!-- Maskot lumba-lumba futuristik -->
+        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maskot lumba-lumba FINORATECH">
+          <defs>
+            <linearGradient id="dGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#5fc0ff"/>
+              <stop offset="45%" stop-color="#0a84ff"/>
+              <stop offset="100%" stop-color="#1b3bff"/>
+            </linearGradient>
+            <linearGradient id="dGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d6ecff"/>
+              <stop offset="100%" stop-color="#7db8ff"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="4" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- aura -->
+          <ellipse cx="150" cy="150" rx="110" ry="100" fill="url(#dGrad)" opacity="0.07"/>
+          <!-- tubuh -->
+          <path d="M62 168
+                   C60 128 96 92 146 86
+                   C196 80 236 104 246 142
+                   C252 166 240 190 216 202
+                   C196 212 176 208 158 214
+                   C140 220 118 236 96 236
+                   C76 236 64 216 62 190 Z"
+                fill="url(#dGrad)" stroke="#9fd4ff" stroke-width="2"/>
+          <!-- perut / highlight -->
+          <path d="M96 186 C112 166 140 158 166 160 C192 162 208 176 206 192 C190 202 168 204 148 202 C128 200 110 196 96 186 Z"
+                fill="url(#dGrad2)" opacity="0.85"/>
+          <!-- sirip punggung -->
+          <path class="fin" d="M150 88 C158 62 176 52 192 58 C184 78 168 90 150 92 Z" fill="#3ea6ff"/>
+          <!-- ekor -->
+          <path d="M62 176 C38 168 20 148 16 126 C40 130 56 146 64 164 Z" fill="#3ea6ff"/>
+          <path d="M62 190 C42 204 34 224 40 244 C58 232 66 214 68 198 Z" fill="#1b6bff"/>
+          <!-- sirip samping -->
+          <path class="fin" d="M150 186 C136 204 128 222 134 236 C150 226 160 210 162 196 Z" fill="#7db8ff"/>
+          <!-- mata -->
+          <circle cx="206" cy="132" r="11" fill="#eaf6ff"/>
+          <circle cx="208" cy="133" r="5.5" fill="#062a5e"/>
+          <circle cx="210" cy="131" r="1.8" fill="#ffffff"/>
+          <!-- garis teknologi -->
+          <path d="M176 110 C196 100 220 104 234 118" stroke="#d6ecff" stroke-width="2" fill="none" opacity="0.8" stroke-linecap="round"/>
+          <path d="M120 176 C136 172 152 176 164 186" stroke="#d6ecff" stroke-width="2" fill="none" opacity="0.7" stroke-linecap="round"/>
+          <!-- sensor futuristik -->
+          <circle cx="228" cy="150" r="3" fill="#5fc0ff" filter="url(#glow)"/>
+          <circle cx="120" cy="120" r="2.5" fill="#5fc0ff" filter="url(#glow)"/>
+          <circle cx="100" cy="200" r="2.5" fill="#5fc0ff" filter="url(#glow)"/>
+        </svg>
+      </div>
+      <div class="chip c1">🤖 <b>FinoraAI</b> aktif</div>
+      <div class="chip c2">⚡ Sistem <b>real-time</b></div>
+      <div class="chip c3">🔒 <b>Secure</b> by design</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section id="about">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">About Us</span>
+      <h2>Ekosistem Teknologi yang Dirancang untuk Masa Depan</h2>
+      <p>FINORATECH adalah rumah bagi inovasi digital. Kami membangun produk yang saling terhubung untuk membantu individu dan bisnis tumbuh di era digital.</p>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-list">
+          <div class="about-item">
+            <div class="ic">🎯</div>
+            <div><h4>Visi yang Jelas</h4><p>Menyederhanakan kompleksitas teknologi menjadi pengalaman yang intuitif dan menyenangkan.</p></div>
+          </div>
+          <div class="about-item">
+            <div class="ic">🚀</div>
+            <div><h4>Inovasi Berkelanjutan</h4><p>Setiap produk kami dikembangkan dengan standar premium, keamanan tinggi, dan performa ringan.</p></div>
+          </div>
+          <div class="about-item">
+            <div class="ic">🤝</div>
+            <div><h4>Berorientasi Pengguna</h4><p>Desain manusiawi, aksesibel, dan responsif di semua perangkat — dari Android hingga desktop.</p></div>
+          </div>
+          <div class="about-item">
+            <div class="ic">🐬</div>
+            <div><h4>Maskot Finora</h4><p>Lumba-lumba futuristik biru melambangkan kecerdasan, kecepatan, dan kepercayaan dalam menjelajah samudra digital.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-card reveal d2">
+        <h3 style="font-size:1.25rem;margin-bottom:10px">Mengapa FINORATECH?</h3>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:20px">Kami menggabungkan desain premium dengan teknologi mutakhir untuk menciptakan ekosistem yang bukan hanya fungsional, tetapi juga inspiratif.</p>
+        <ul style="display:grid;gap:12px">
+          <li style="display:flex;gap:10px;font-size:.9rem"><span style="color:var(--blue-2)">✔</span> Produk terintegrasi dalam satu ekosistem</li>
+          <li style="display:flex;gap:10px;font-size:.9rem"><span style="color:var(--blue-2)">✔</span> Antarmuka modern, futuristik, dan responsif</li>
+          <li style="display:flex;gap:10px;font-size:.9rem"><span style="color:var(--blue-2)">✔</span> Didukung AI dan otomasi cerdas</li>
+          <li style="display:flex;gap:10px;font-size:.9rem"><span style="color:var(--blue-2)">✔</span> Fokus pada keamanan dan privasi data</li>
+        </ul>
+        <a href="#products" class="btn btn-primary" style="margin-top:24px">Lihat Produk Kami</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PRODUCTS ====== -->
+<section id="products">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="sec-tag">Products</span>
+      <h2>Produk Unggulan FINORATECH</h2>
+      <p>Enam produk yang dirancang untuk mempercepat produktivitas, pembelajaran, dan pertumbuhan finansial Anda.</p>
+    </div>
+    <div class="products-grid">
+      <article class="product-card reveal d1">
+        <span class="tag-mini">Finance</span>
+        <div class="product-icon">💰</div>
+        <h3>Finora Keuangan</h3>
+        <p>Kelola keuangan pribadi dan bisnis dengan dashboard cerdas, laporan otomatis, dan insight berbasis AI.</p>
+        <button class="btn btn-primary product-btn" data-product="Finora Keuangan">Coba Sekarang</button>
+      </article>
+      <article class="product-card reveal d2">
+        <span class="tag-mini">Notes</span>
+        <div class="product-icon">📒</div>
+        <h3>Catatan Pro</h3>
+        <p>Aplikasi catatan profesional dengan sinkronisasi real-time, organisasi pintar, dan mode fokus.</p>
+        <button class="btn btn-primary product-btn" data-product="Catatan Pro">Buka Aplikasi</button>
+      </article>
+      <article class="product-card reveal d3">
+        <span class="tag-mini">Learning</span>
+        <div class="product-icon">🎓</div>
+        <h3>FinoraLearn</h3>
+        <p>Platform pembelajaran adaptif dengan jalur belajar personal dan konten interaktif berkualitas.</p>
+        <button class="btn btn-primary product-btn" data-product="FinoraLearn">Mulai Belajar</button>
+      </article>
+      <article class="product-card reveal d1">
+        <span class="tag-mini">AI</span>
+        <div class="product-icon">🤖</div>
+        <h3>FinoraAI</h3>
+        <p>Asisten cerdas berbasis AI untuk menjawab pertanyaan, menulis, dan mengotomatiskan pekerjaan.</p>
+        <button class="btn btn-primary product-btn" data-product="FinoraAI">Tanya AI</button>
+      </article>
+      <article class="product-card reveal d2">
+        <span class="tag-mini">Tools</span>
+        <div class="product-icon">🛠️</div>
+        <h3>FinoraTools</h3>
+        <p>Kumpulan alat digital produktivitas: konverter, generator, dan utilitas harian dalam satu tempat.</p>
+        <button class="btn btn-primary product-btn" data-product="FinoraTools">Gunakan Tools</button>
+      </article>
+      <article class="product-card reveal d3">
+        <span class="tag-mini">Web</span>
+        <div class="product-icon">🌐</div>
+        <h3>FinoraWeb</h3>
+        <p>Layanan pembuatan website cepat, modern, dan responsif untuk personal branding maupun bisnis.</p>
+        <button class="btn btn-primary product-btn" data-product="FinoraWeb">Bangun Website</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== AI TECHNOLOGY ====== -->
+<section id="ai">
+  <div class="container">
+    <div class="ai-wrap">
+      <div class="reveal">
+        <span class="sec-tag">AI Technology</span>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;line-height:1.2;margin-bottom:14px">Kecerdasan Artifisial yang Bekerja untuk Anda</h2>
+        <p style="color:var(--muted);font-size:.95rem;margin-bottom:22px">Teknologi AI FINORATECH dirancang untuk memahami kebutuhan Anda, memberikan rekomendasi cerdas, dan mengotomatiskan tugas-tugas repetitif.</p>
+        <a href="#contact" class="btn btn-primary">Konsultasi AI</a>
+      </div>
+      <div class="ai-steps reveal d2">
+        <div class="ai-step"><span class="num">01</span><div><h4>Analisis Data Cerdas</h4><p>AI menganalisis pola untuk memberikan insight yang relevan dan akurat.</p></div></div>
+        <div class="ai-step"><span class="num">02</span><div><h4>Otomasi Tugas</h4><p>Hemat waktu dengan alur kerja otomatis yang dapat disesuaikan.</p></div></div>
+        <div class="ai-step"><span class="num">03</span><div><h4>Personalisasi Pengalaman</h4><p>Setiap pengguna mendapatkan pengalaman yang disesuaikan secara dinamis.</p></div></div>
+        <div class="ai-step"><span class="num">04</span><div><h4>Keamanan Berlapis</h4><p>Data diproses dengan enkripsi dan standar privasi tinggi.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIGITAL TOOLS ====== -->
+<section id="tools">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="sec-tag">Digital Tools</span>
+      <h2>Alat Digital Serbaguna</h2>
+      <p>Percepat pekerjaan harian Anda dengan tools ringan, cepat, dan siap pakai.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool reveal d1"><span class="em">📊</span><h4>Dashboard</h4><p>Pantau metrik penting</p></div>
+      <div class="tool reveal d2"><span class="em">🔐</span><h4>Secure Vault</h4><p>Simpan data aman</p></div>
+      <div class="tool reveal d3"><span class="em">⚙️</span><h4>Auto Workflow</h4><p>Otomasi proses</p></div>
+      <div class="tool reveal d4"><span class="em">📱</span><h4>Mobile Ready</h4><p>Responsif di semua alat</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="sec-tag">Contact</span>
+      <h2>Hubungi FINORATECH</h2>
+      <p>Kami siap membantu. Kirim pesan dan tim kami akan segera merespons.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-line"><div class="ic">📧</div><div><b>Email</b><span>hello@finoratech.com</span></div></div>
+        <div class="contact-line"><div class="ic">📱</div><div><b>WhatsApp</b><span>+62 812 3456 7890</span></div></div>
+        <div class="contact-line"><div class="ic">📍</div><div><b>Lokasi</b><span>Jakarta, Indonesia</span></div></div>
+        <div class="contact-line"><div class="ic">⏰</div><div><b>Jam Layanan</b><span>Senin – Jumat, 09.00 – 18.00 WIB</span></div></div>
+      </div>
+      <form class="form reveal d2" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Nama Lengkap</label>
+          <input type="text" id="name" name="name" placeholder="Nama Anda" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="email@contoh.com" required>
+        </div>
+        <div class="field">
+          <label for="message">Pesan</label>
+          <textarea id="message" name="message" placeholder="Tulis pesan Anda..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="#home" class="logo"><span class="logo-mark">🐬</span><span>FINORA<b>TECH</b></span></a>
+      <p>Ekosistem teknologi digital premium untuk masa depan yang lebih cerdas, aman, dan terhubung.</p>
+      <div class="foot-social">
+        <a href="#home" aria-label="Instagram">📷</a>
+        <a href="#home" aria-label="X">𝕏</a>
+        <a href="#home" aria-label="LinkedIn">in</a>
+        <a href="#home" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>Produk</h5>
+      <a href="#products">Finora Keuangan</a>
+      <a href="#products">Catatan Pro</a>
+      <a href="#products">FinoraLearn</a>
+      <a href="#products">FinoraAI</a>
+      <a href="#products">FinoraTools</a>
+      <a href="#products">FinoraWeb</a>
+    </div>
+    <div class="foot-col">
+      <h5>Perusahaan</h5>
+      <a href="#about">About Us</a>
+      <a href="#ai">AI Technology</a>
+      <a href="#tools">Digital Tools</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="foot-col">
+      <h5>Legal</h5>
+      <a href="#home">Privacy Policy</a>
+      <a href="#home">Terms of Service</a>
+      <a href="#home">Cookie Policy</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span id="year"></span> FINORATECH. All rights reserved.</span>
+    <span>Dibangun dengan ❤️ untuk masa depan digital.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ====== TAHUN ====== */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ====== DARK / LIGHT MODE ====== */
+  var themeBtn = document.getElementById('themeBtn');
+  var saved = localStorage.getItem('finora-theme');
+  if(saved === 'light'){ document.body.classList.add('light'); themeBtn.textContent = '☀️'; }
+  themeBtn.addEventListener('click', function(){
+    document.body.classList.toggle('light');
+    var isLight = document.body.classList.contains('light');
+    themeBtn.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('finora-theme', isLight ? 'light' : 'dark');
+  });
+
+  /* ====== MOBILE MENU ====== */
+  var burger = document.getElementById('burger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    mobileMenu.classList.toggle('open');
+    burger.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mobileMenu.classList.remove('open');
+      burger.textContent = '☰';
+    });
+  });
+
+  /* ====== ACTIVE NAV LINK ====== */
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function(){
+    var pos = window.scrollY + 120;
+    sections.forEach(function(sec){
+      if(pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight){
+        navLinks.forEach(function(l){
+          l.classList.toggle('active', l.getAttribute('href') === '#' + sec.id);
+        });
+      }
+    });
+  });
+
+  /* ====== REVEAL ON SCROLL ====== */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ====== HOVER GLOW PADA KARTU PRODUK ====== */
+  document.querySelectorAll('.product-card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  /* ====== TOMBOL PRODUK ====== */
+  document.querySelectorAll('.product-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.getAttribute('data-product') || 'Produk';
+      alert('🚀 ' + name + '\n\nTerima kasih telah tertarik! Produk ini segera hadir.\nHubungi kami di hello@finoratech.com untuk info lebih lanjut.');
+    });
+  });
+
+  /* ====== FORM CONTACT ====== */
+  var form = document.getElementById('contactForm');
+  var msg = document.getElementById('formMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var message = form.message.value.trim();
+    msg.className = 'form-msg';
+    if(!name || !email || !message){
+      msg.textContent = '⚠️ Mohon lengkapi semua kolom.';
+      msg.classList.add('err');
+      return;
+    }
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!emailOk){
+      msg.textContent = '⚠️ Format email tidak valid.';
+      msg.classList.add('err');
+      return;
+    }
+    msg.textContent = '✅ Terima kasih, ' + name + '! Pesan Anda telah terkirim.';
+    msg.classList.add('ok');
+    form.reset();
+  });
+
+  /* ====== SMOOTH SCROLL OFFSET ====== */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length > 1){
+        var target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          var top = target.getBoundingClientRect().top + window.scrollY - 70;
+          window.scrollTo({top: top, behavior:'smooth'});
+        }
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
