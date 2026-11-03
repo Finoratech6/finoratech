@@ -251,12 +251,18 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding:60px 22px
 <section class="hero" id="home">
   <div class="hero-inner">
     <div class="hero-text">
-      <span class="badge reveal"><span class="dot"></span> EKOSISTEM TEKNOLOGI DIGITAL</span>
-      <h1 class="reveal d1">Bangun Masa Depan Digital<br>Bersama <span class="grad">FINORATECH</span></h1>
-      <p class="lead reveal d2">Platform ekosistem teknologi premium yang menyatukan keuangan, kecerdasan artifisial, pembelajaran, dan tools digital dalam satu pengalaman yang mulus, aman, dan futuristik.</p>
-      <div class="hero-cta reveal d3">
+      <!-- Kelas reveal dihapus dari elemen utama hero agar langsung tampil -->
+      <span class="badge"><span class="dot"></span> EKOSISTEM TEKNOLOGI DIGITAL</span>
+      <h1>Bangun Masa Depan Digital<br>Bersama <span class="grad">FINORATECH</span></h1>
+      <p class="lead">Platform ekosistem teknologi premium yang menyatukan keuangan, kecerdasan artifisial, pembelajaran, dan tools digital dalam satu pengalaman yang mulus, aman, dan futuristik.</p>
+      <div class="hero-cta">
         <a href="#products" class="btn btn-primary">Jelajahi Produk →</a>
         <a href="#about" class="btn btn-ghost">Tentang Kami</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>6+</b><span>Produk Unggulan</span></div>
+        <div><b>24/7</b><span>Dukungan AI</span></div>
+        <div><b>100%</b><span>Fokus Digital</span></div>
       </div>
     </div>
     <div class="dolphin-stage">
@@ -337,4 +343,352 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding:60px 22px
         <div class="product-icon">📒</div>
         <h3>Catatan Pro</h3>
         <p>Aplikasi catatan profesional dengan sinkronisasi real-time dan mode fokus.</p>
-        <a href="https://wa.me/628950263
+        <a href="https://wa.me/6289502639418?text=Halo%20saya%20tertarik%20dengan%20Catatan%20Pro" target="_blank" class="btn btn-primary">Buka Aplikasi</a>
+      </article>
+
+      <!-- 3. Learn (Pop-up) -->
+      <article class="product-card reveal d3">
+        <span class="tag-mini">Learning</span>
+        <div class="product-icon">🎓</div>
+        <h3>FinoraLearn</h3>
+        <p>Platform pembelajaran adaptif dengan jalur belajar personal dan konten interaktif.</p>
+        <button onclick="openModal('learn')" class="btn btn-primary">Mulai Belajar</button>
+      </article>
+
+      <!-- 4. AI (Pop-up) -->
+      <article class="product-card reveal d1">
+        <span class="tag-mini">AI</span>
+        <div class="product-icon">🤖</div>
+        <h3>FinoraAI</h3>
+        <p>Asisten cerdas berbasis AI untuk menjawab pertanyaan dan mengotomatiskan pekerjaan.</p>
+        <button onclick="openModal('ai')" class="btn btn-primary">Tanya AI</button>
+      </article>
+
+      <!-- 5. Tools (Pop-up) -->
+      <article class="product-card reveal d2">
+        <span class="tag-mini">Tools</span>
+        <div class="product-icon">🛠️</div>
+        <h3>FinoraTools</h3>
+        <p>Kumpulan alat digital produktivitas: konverter, generator, dan utilitas harian.</p>
+        <button onclick="openModal('tools')" class="btn btn-primary">Gunakan Tools</button>
+      </article>
+
+      <!-- 6. Web (Pop-up) -->
+      <article class="product-card reveal d3">
+        <span class="tag-mini">Web</span>
+        <div class="product-icon">🌐</div>
+        <h3>FinoraWeb</h3>
+        <p>Layanan pembuatan website cepat, modern, dan responsif untuk bisnis Anda.</p>
+        <button onclick="openModal('web')" class="btn btn-primary">Bangun Website</button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== AI TECHNOLOGY ====== -->
+<section id="ai">
+  <div class="container">
+    <div class="ai-wrap">
+      <div class="reveal">
+        <span class="sec-tag">AI Technology</span>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;line-height:1.2;margin-bottom:14px">Kecerdasan Artifisial yang Bekerja untuk Anda</h2>
+        <p style="color:var(--muted);font-size:.95rem;margin-bottom:22px">Teknologi AI FINORATECH dirancang untuk memahami kebutuhan Anda, memberikan rekomendasi cerdas, dan mengotomatiskan tugas-tugas repetitif.</p>
+        <a href="#contact" class="btn btn-primary">Konsultasi AI</a>
+      </div>
+      <div class="ai-steps reveal d2">
+        <div class="ai-step"><span class="num">01</span><div><h4>Analisis Data Cerdas</h4><p>AI menganalisis pola data untuk memberikan insight yang relevan dan akurat.</p></div></div>
+        <div class="ai-step"><span class="num">02</span><div><h4>Otomasi Tugas</h4><p>Hemat waktu dengan alur kerja otomatis yang dapat disesuaikan.</p></div></div>
+        <div class="ai-step"><span class="num">03</span><div><h4>Personalisasi Pengalaman</h4><p>Setiap pengguna mendapatkan pengalaman yang disesuaikan secara dinamis.</p></div></div>
+        <div class="ai-step"><span class="num">04</span><div><h4>Keamanan Berlapis</h4><p>Data diproses dengan enkripsi dan standar privasi tinggi.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIGITAL TOOLS ====== -->
+<section id="tools">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="sec-tag">Digital Tools</span>
+      <h2>Alat Digital Serbaguna</h2>
+      <p>Percepat pekerjaan harian Anda dengan tools ringan, cepat, dan siap pakai.</p>
+    </div>
+    <div class="tools-grid">
+      <!-- Dashboard (Pop-up Tools) -->
+      <div class="tool reveal d1" onclick="openModal('tools')"><span class="em">📊</span><h4>Dashboard</h4><p>Pantau metrik penting</p></div>
+      <!-- Secure Vault (Pop-up Tools) -->
+      <div class="tool reveal d2" onclick="openModal('tools')"><span class="em">🔐</span><h4>Secure Vault</h4><p>Simpan data aman</p></div>
+      <!-- Auto Workflow (Pop-up Tools) -->
+      <div class="tool reveal d3" onclick="openModal('tools')"><span class="em">⚙️</span><h4>Auto Workflow</h4><p>Otomasi proses</p></div>
+      <!-- Mobile Ready (Pop-up Web) -->
+      <div class="tool reveal d4" onclick="openModal('web')"><span class="em">📱</span><h4>Mobile Ready</h4><p>Responsif di semua alat</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="sec-tag">Contact</span>
+      <h2>Hubungi FINORATECH</h2>
+      <p>Kami siap membantu. Kirim pesan dan tim kami akan segera merespons.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <a href="mailto:finoratech6@gmail.com" class="contact-line"><div class="ic">📧</div><div><b>Email</b><span>finoratech6@gmail.com</span></div></a>
+        <a href="https://wa.me/6289502639418" target="_blank" class="contact-line"><div class="ic">📱</div><div><b>WhatsApp</b><span>+62 895 0263 9418</span></div></a>
+        <div class="contact-line"><div class="ic">📍</div><div><b>Lokasi</b><span>Jakarta, Indonesia</span></div></div>
+      </div>
+      <form class="form reveal d2" id="contactForm" novalidate>
+        <div class="field"><label>Nama Lengkap</label><input type="text" name="name" placeholder="Nama Anda" required></div>
+        <div class="field"><label>Email</label><input type="email" name="email" placeholder="email@contoh.com" required></div>
+        <div class="field"><label>Pesan</label><textarea name="message" placeholder="Tulis pesan Anda..." required></textarea></div>
+        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="#home" class="logo"><span class="logo-mark">🐬</span><span>FINORA<b>TECH</b></span></a>
+      <p>Ekosistem teknologi digital premium untuk masa depan yang lebih cerdas, aman, dan terhubung.</p>
+    </div>
+    <div class="foot-col"><h5>Produk</h5><a href="#products">Finora Keuangan</a><a href="#products">Catatan Pro</a><a href="#products">FinoraLearn</a><a href="#products">FinoraAI</a><a href="#products">FinoraTools</a><a href="#products">FinoraWeb</a></div>
+    <div class="foot-col"><h5>Perusahaan</h5><a href="#about">About Us</a><a href="#ai">AI Technology</a><a href="#tools">Digital Tools</a><a href="#contact">Contact</a></div>
+    <div class="foot-col"><h5>Legal</h5><a href="#home">Privacy Policy</a><a href="#home">Terms of Service</a></div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span id="year"></span> FINORATECH. All rights reserved.</span>
+    <span>Dibangun dengan ❤️ untuk masa depan digital.</span>
+  </div>
+</footer>
+
+<!-- ====== MODAL POP-UP APLIKASI (Learn, AI, Tools, Web) ====== -->
+<div class="modal-overlay" id="appModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    
+    <!-- 3. Learn -->
+    <div id="view-learn" style="display:none">
+      <h3>🎓 FinoraLearn</h3>
+      <p>Selamat datang di kelas interaktif!</p>
+      <div style="background:var(--card);padding:20px;border-radius:12px;border:1px solid var(--line);margin-bottom:15px;">
+        <h4 style="color:var(--blue-2)">Modul 1: Dasar Digital</h4>
+        <p style="font-size:.85rem;margin-top:5px;">Progres: <b>0%</b></p>
+        <div style="width:100%;height:6px;background:rgba(255,255,255,.1);border-radius:10px;margin-top:8px;"><div style="width:0%;height:100%;background:var(--blue);border-radius:10px;"></div></div>
+      </div>
+      <button class="btn btn-primary" style="width:100%" onclick="alert('Materi akan segera hadir!')">Mulai Modul</button>
+    </div>
+
+    <!-- 4. AI -->
+    <div id="view-ai" style="display:none">
+      <h3>🤖 FinoraAI</h3>
+      <p>Tanyakan apa saja pada asisten cerdas kami.</p>
+      <div class="chat-box" id="chatBox">
+        <div class="chat-bubble ai">Halo! Saya FinoraAI. Ada yang bisa saya bantu hari ini?</div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="chatInput" placeholder="Ketik pesan..." style="flex:1;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);">
+        <button class="btn btn-primary" onclick="sendChat()">Kirim</button>
+      </div>
+    </div>
+
+    <!-- 5. Tools -->
+    <div id="view-tools" style="display:none">
+      <h3>🛠️ FinoraTools</h3>
+      <p>Kumpulan utilitas digital dalam satu tempat.</p>
+      <div class="field">
+        <label>Konverter Huruf (Kapital)</label>
+        <input type="text" id="toolInput" placeholder="Ketik teks..." oninput="document.getElementById('toolOutput').value = this.value.toUpperCase()">
+      </div>
+      <div class="field">
+        <label>Hasil:</label>
+        <input type="text" id="toolOutput" readonly style="background:rgba(10,132,255,.1);border-color:var(--blue);">
+      </div>
+    </div>
+
+    <!-- 6. Web -->
+    <div id="view-web" style="display:none">
+      <h3>🌐 FinoraWeb</h3>
+      <p>Simulasikan pembuatan website impian Anda.</p>
+      <div class="field"><label>Nama Bisnis</label><input type="text" id="webName" placeholder="Contoh: Kopi Senja" oninput="updateWebPreview()"></div>
+      <div class="field"><label>Warna Utama</label><input type="color" id="webColor" value="#0a84ff" style="height:40px;padding:2px;" oninput="updateWebPreview()"></div>
+      <div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center;margin-top:15px;">
+        <h3 id="previewTitle" style="font-size:1.2rem;margin-bottom:5px;">Nama Bisnis Anda</h3>
+        <p style="font-size:.8rem;color:var(--muted)">Website modern & responsif</p>
+        <button class="btn" id="previewBtn" style="margin-top:10px;padding:8px 16px;font-size:.8rem;color:#fff;">Hubungi Kami</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ====== TAHUN ====== */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ====== DARK / LIGHT MODE ====== */
+  var themeBtn = document.getElementById('themeBtn');
+  var saved = localStorage.getItem('finora-theme');
+  if(saved === 'light'){ document.body.classList.add('light'); themeBtn.textContent = '☀️'; }
+  themeBtn.addEventListener('click', function(){
+    document.body.classList.toggle('light');
+    var isLight = document.body.classList.contains('light');
+    themeBtn.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('finora-theme', isLight ? 'light' : 'dark');
+  });
+
+  /* ====== MOBILE MENU ====== */
+  var burger = document.getElementById('burger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    mobileMenu.classList.toggle('open');
+    burger.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mobileMenu.classList.remove('open');
+      burger.textContent = '☰';
+    });
+  });
+
+  /* ====== ACTIVE NAV LINK ====== */
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function(){
+    var pos = window.scrollY + 120;
+    sections.forEach(function(sec){
+      if(pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight){
+        navLinks.forEach(function(l){
+          l.classList.toggle('active', l.getAttribute('href') === '#' + sec.id);
+        });
+      }
+    });
+  });
+
+  /* ====== REVEAL ON SCROLL ====== */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ====== FORM CONTACT ====== */
+  var form = document.getElementById('contactForm');
+  var msg = document.getElementById('formMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var message = form.message.value.trim();
+    msg.className = 'form-msg';
+    
+    if(!name || !email || !message){
+      msg.textContent = '⚠️ Mohon lengkapi semua kolom.';
+      msg.classList.add('err');
+      return;
+    }
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!emailOk){
+      msg.textContent = '⚠️ Format email tidak valid.';
+      msg.classList.add('err');
+      return;
+    }
+    var mailtoLink = "mailto:finoratech6@gmail.com?subject=Pesan dari " + encodeURIComponent(name) + " (" + encodeURIComponent(email) + ")&body=" + encodeURIComponent(message);
+    window.location.href = mailtoLink;
+    msg.textContent = '✅ Membuka aplikasi email Anda...';
+    msg.classList.add('ok');
+    form.reset();
+  });
+
+  /* ====== SMOOTH SCROLL ====== */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length > 1){
+        var target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          var top = target.getBoundingClientRect().top + window.scrollY - 70;
+          window.scrollTo({top: top, behavior:'smooth'});
+        }
+      }
+    });
+  });
+
+})();
+
+/* ====== LOGIKA MODAL APLIKASI ====== */
+var modal = document.getElementById('appModal');
+var views = ['learn', 'ai', 'tools', 'web'];
+
+function openModal(appName) {
+  modal.classList.add('open');
+  views.forEach(function(v) {
+    document.getElementById('view-' + v).style.display = 'none';
+  });
+  var targetView = document.getElementById('view-' + appName);
+  if(targetView) targetView.style.display = 'block';
+  
+  if(appName === 'ai') {
+    document.getElementById('chatInput').focus();
+  }
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+}
+
+modal.addEventListener('click', function(e) {
+  if(e.target === modal) closeModal();
+});
+
+/* 4. Logika AI Chat */
+function sendChat() {
+  var input = document.getElementById('chatInput');
+  var chatBox = document.getElementById('chatBox');
+  var text = input.value.trim();
+  if(!text) return;
+
+  var userBubble = document.createElement('div');
+  userBubble.className = 'chat-bubble user';
+  userBubble.textContent = text;
+  chatBox.appendChild(userBubble);
+  
+  input.value = '';
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  setTimeout(function() {
+    var aiBubble = document.createElement('div');
+    aiBubble.className = 'chat-bubble ai';
+    aiBubble.textContent = 'Menarik! Saat ini saya masih simulasi. Di versi asli, saya akan menjawab menggunakan kecerdasan artifisial penuh.';
+    chatBox.appendChild(aiBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 1000);
+}
+
+/* 6. Logika Web Preview */
+function updateWebPreview() {
+  var name = document.getElementById('webName').value || 'Nama Bisnis Anda';
+  var color = document.getElementById('webColor').value;
+  document.getElementById('previewTitle').textContent = name;
+  document.getElementById('previewBtn').style.background = color;
+}
+</script>
+</body>
+</html>
